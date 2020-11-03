@@ -19,7 +19,7 @@ class CoursesForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    debugger;
+    this.props.addCourse(this.state);
   };
   render() {
     return (
@@ -76,6 +76,7 @@ class CoursesForm extends Component {
           name="mixed_use_park"
           onChange={this.handleChange}
         />
+        <input type="submit" />
       </form>
     );
   }

@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import { fetchCourses } from "../actions/coursesActions";
 
 class CoursesContainer extends Component {
+  componentDidMount() {
+    this.props.fetchCourses();
+  }
   render() {
     return (
       <div>

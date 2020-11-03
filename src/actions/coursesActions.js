@@ -9,9 +9,9 @@ export const fetchCourses = () => {
 export const addCourse = (course) => {
   return (dispatch) => {
     fetch("http://localhost:3000/courses", {
-      method: "POST"
+      method: "POST",
       body: JSON.stringify(course),
-      headers: { 'Content-Type': 'application/json'}
+      headers: { "Content-Type": "application/json" },
     })
       .then((resp) => resp.json())
       .then((course) => dispatch({ type: "ADD_COURSE", payload: courses }));

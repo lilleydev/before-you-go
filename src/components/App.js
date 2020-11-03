@@ -1,7 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
+import CoursesContainer from "./CoursesContainer";
 
-export default class App extends Component {
-  render() {
-    return <div>Hello World</div>;
-  }
-}
+const App = () => {
+  return (
+    <div>
+      Hello World From App Class
+      <CoursesContainer />
+    </div>
+  );
+};
+
+export default App;

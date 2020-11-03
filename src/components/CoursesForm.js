@@ -19,6 +19,7 @@ class CoursesForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    debugger;
   };
   render() {
     return (

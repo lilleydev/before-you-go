@@ -14,6 +14,6 @@ export const addCourse = (course) => {
       headers: { "Content-Type": "application/json" },
     })
       .then((resp) => resp.json())
-      .then((course) => dispatch({ type: "ADD_COURSE", payload: courses }));
+      .then((course) => dispatch({ type: "ADD_COURSE", payload: course }));
   };
 };

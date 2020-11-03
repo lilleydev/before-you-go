@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchCourses } from "../actions/coursesActions";
+import { fetchBreweries } from "../actions/beerAction";
 
 class CoursesContainer extends Component {
   componentDidMount() {
     this.props.fetchCourses();
+    this.props.fetchBreweries();
   }
   render() {
     return (
@@ -15,4 +17,6 @@ class CoursesContainer extends Component {
   }
 }
 
-export default connect(null, { fetchCourses })(CoursesContainer);
+export default connect(null, { fetchCourses, fetchBreweries })(
+  CoursesContainer
+);

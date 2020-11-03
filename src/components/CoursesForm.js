@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { addCourse } from "../actions/coursesActions";
+import { connect } from "react-redux";
 
-export default class CoursesForm extends Component {
+class CoursesForm extends Component {
   state = {
     name: "",
     street: "",
@@ -77,3 +79,5 @@ export default class CoursesForm extends Component {
     );
   }
 }
+
+export default connect(null, { addCourse })(CoursesForm);

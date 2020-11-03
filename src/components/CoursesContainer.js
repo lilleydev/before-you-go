@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchCourses } from "../actions/coursesActions";
 import { fetchBreweries } from "../actions/beerAction";
+import CoursesForm from "./CoursesForm";
 
 class CoursesContainer extends Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class CoursesContainer extends Component {
     return (
       <div>
         <h3>Hello From Courses Container</h3>
+        <CoursesForm />
       </div>
     );
   }

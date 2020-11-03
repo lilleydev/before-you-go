@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchCourses } from "../actions/coursesActions";
 
-export default class CoursesContainer extends Component {
+class CoursesContainer extends Component {
   render() {
     return (
       <div>
@@ -9,3 +11,5 @@ export default class CoursesContainer extends Component {
     );
   }
 }
+
+export default connect(null, { fetchCourses })(CoursesContainer);

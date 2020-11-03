@@ -9,6 +9,12 @@ export default class CoursesForm extends Component {
     difficulty: "",
     mixed_use_park: false,
   };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <form>

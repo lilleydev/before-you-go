@@ -3,9 +3,9 @@ import { deleteCourse } from "../actions/coursesActions";
 
 const CoursesList = ({ courses }) => {
   // debugger;
-  handleOnClick = () => {
+  handleClick = (event) => {
     debugger;
-    this.props.deleteCourse(this.props.id);
+    console.log(event);
   };
 
   return (
@@ -14,8 +14,8 @@ const CoursesList = ({ courses }) => {
         <ul>
           <li key={course.id}>
             {course.name} - {course.street} - {course.city} - {course.state} -
-            {course.difficulty} - {course.mixed_use_park} -{" "}
-            <button onClick={this.handleOnClick}>Delete</button>
+            {course.difficulty} - {course.mixed_use_park} -
+            <button onClick={this.handleClick}>Delete</button>
           </li>
         </ul>
       ))}

@@ -1,11 +1,10 @@
 import React from "react";
-import CoursesContainer from "./CoursesContainer";
-
+import Router from "./Router";
 const App = () => {
   return (
     <div>
       Hello World From App Class
-      <CoursesContainer />
+      <Router />
     </div>
   );
 };

@@ -18,10 +18,9 @@ export const addCourse = (course) => {
   };
 };
 
-//course.id ??
 export const deleteCourse = (course) => {
   return (dispatch) => {
-    fetch("http://localhost:3000/courses", {
+    fetch("http://localhost:3000/courses/" + course.id, {
       method: "DELETE",
     })
       .then((resp) => resp.json())

@@ -1,7 +1,12 @@
-export const usersReducer = (state = [], action) => {
+const initialState = {
+  username: "",
+  password: "",
+};
+
+export const loginFormReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_USERS":
-      return action.paylod;
+    case "UPDATE_LOGIN_FORM":
+      return action.formData;
     default:
       return state;
   }

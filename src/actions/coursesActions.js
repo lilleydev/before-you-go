@@ -1,8 +1,9 @@
 export const fetchCourses = () => {
   return (dispatch) => {
-    fetch("http://localhost:3000/courses")
+    fetch("http://localhost:3000/api/v1/courses")
       .then((resp) => resp.json())
-      .then((courses) => dispatch({ type: "FETCH_COURSES", payload: courses }));
+      .then((data) => console.log(data));
+    // .then((courses) => dispatch({ type: "FETCH_COURSES", payload: courses }));
   };
 };
 
@@ -18,6 +19,7 @@ export const addCourse = (course) => {
   };
 };
 
+//course.id ??
 export const deleteCourse = (course) => {
   return (dispatch) => {
     fetch("http://localhost:3000/courses/" + course.id, {

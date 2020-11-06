@@ -10,7 +10,7 @@ const CoursesList = ({ courses, deleteCourse }) => {
 
   return (
     <div>
-      {courses.map((course) => (
+      {/* {courses.map((course) => (
         <ul>
           <li key={course.id}>
             {course.name} - {course.street} - {course.city} - {course.state} -
@@ -18,7 +18,7 @@ const CoursesList = ({ courses, deleteCourse }) => {
             <button onClick={() => deleteCourse(course)}>Delete</button>
           </li>
         </ul>
-      ))}
+      ))} */}
     </div>
   );
 };

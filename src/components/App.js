@@ -2,6 +2,7 @@ import React from "react";
 import Router from "./Router";
 import CoursesContainer from "./CoursesContainer";
 import Login from "./Login";
+import Logout from "./Logout";
 import { connect } from "react-redux";
 import { getCurrentUser } from "../actions/currentUser";
 
@@ -13,13 +14,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        Hello World From App Class
+        ({this.props.currentUser ? <Logout /> : <Login />}), Hello World From
+        App Class
         <CoursesContainer />,
-        <Login />,
         <Router />
       </div>
     );
   }
 }
 
-export default connect(null, { getCurrentUser })(App);
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser,
+  };
+};
+
+export default connect(mapStateToProps, { getCurrentUser })(App);

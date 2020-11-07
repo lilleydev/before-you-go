@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { deleteCourse } from "../actions/coursesActions";
+import CoursesContainer from "./CoursesContainer";
 
 const CoursesList = ({ courses, deleteCourse }) => {
   // debugger;
@@ -19,6 +20,7 @@ const CoursesList = ({ courses, deleteCourse }) => {
           </li>
         </ul>
       ))} */}
+      <CoursesContainer />,
     </div>
   );
 };

@@ -2,27 +2,28 @@ export const fetchCourses = () => {
   return (dispatch) => {
     fetch("http://localhost:3000/api/v1/courses")
       .then((resp) => resp.json())
-      .then((data) => console.log(data));
-    // .then((courses) => dispatch({ type: "FETCH_COURSES", payload: courses }));
+      // .then((data) => console.log(data));
+      .then((courses) =>
+        dispatch({ type: "FETCH_COURSES", payload: courses.data })
+      );
   };
 };
 
 export const addCourse = (course) => {
   return (dispatch) => {
-    fetch("http://localhost:3000/courses", {
+    fetch("http://localhost:3000/api/v1/courses", {
       method: "POST",
       body: JSON.stringify(course),
       headers: { "Content-Type": "application/json" },
     })
       .then((resp) => resp.json())
-      .then((course) => dispatch({ type: "ADD_COURSE", payload: course }));
+      .then((course) => dispatch({ type: "ADD_COURSE", payload: course.data }));
   };
 };
 
-//course.id ??
 export const deleteCourse = (course) => {
   return (dispatch) => {
-    fetch("http://localhost:3000/courses/" + course.id, {
+    fetch("http://localhost:3000/api/v1/courses/" + course.id, {
       method: "DELETE",
     })
       .then((resp) => resp.json())

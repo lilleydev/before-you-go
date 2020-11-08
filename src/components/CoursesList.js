@@ -3,23 +3,26 @@ import { deleteCourse } from "../actions/coursesActions";
 import CoursesContainer from "./CoursesContainer";
 
 const CoursesList = ({ courses, deleteCourse }) => {
+  // const courseInfo = courses.data;
   // debugger;
-  // handleClick = (event) => {
-  //   debugger;
-  //   console.log(event);
-  // };
-
   return (
     <div>
-      {/* {courses.map((course) => (
-        <ul>
-          <li key={course.id}>
-            {course.name} - {course.street} - {course.city} - {course.state} -
-            {course.difficulty} - {course.mixed_use_park} -
-            <button onClick={() => deleteCourse(course)}>Delete</button>
-          </li>
-        </ul>
-      ))} */}
+      {courses ? (
+        <>
+          {courses.map((course) => (
+            <ul>
+              <li key={course.id}>
+                {course.attributes.name} - {course.attributes.street} -{" "}
+                {course.attributes.city} - {course.attributes.state} -
+                {course.attributes.difficulty} -
+                <button onClick={() => deleteCourse(course)}>Delete</button>
+              </li>
+            </ul>
+          ))}
+        </>
+      ) : (
+        "there are no courses"
+      )}
       <CoursesContainer />,
     </div>
   );

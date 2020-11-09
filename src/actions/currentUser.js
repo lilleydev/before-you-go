@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm";
+import { getMyBucketLists } from "./bucketLists";
 
 //sync
 export const setCurrentUser = (user) => {
@@ -25,6 +26,7 @@ export const login = (credentials) => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user.data));
+          dispatch(getMyBucketLists());
           dispatch(resetLoginForm());
         }
       })
@@ -47,6 +49,31 @@ export const getCurrentUser = () => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user.data));
+          dispatch(getMyBucketLists());
+        }
+      })
+      .catch(console.log);
+  };
+};
+
+export const signup = (credentials) => {
+  return (dispatch) => {
+    return fetch("http://localhost:3000/api/v1/signup", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    })
+      .then((resp) => resp.json())
+      .then((user) => {
+        if (user.error) {
+          alert(user.error);
+        } else {
+          dispatch(setCurrentUser(user.data));
+          dispatch(getMyBucketLists());
+          dispatch(resetLoginForm());
         }
       })
       .catch(console.log);

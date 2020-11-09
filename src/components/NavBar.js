@@ -1,6 +1,6 @@
 import React from "react";
-import Login from "./Login";
-import Logout from "./Logout";
+// import Login from "./Login";
+// import Logout from "./Logout";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const NavBar = ({ currentUser }) => {
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
         {currentUser ? <p>What's up {currentUser.attributes.name}!!</p> : ""}
-        {currentUser ? <Logout /> : <Login />}
+        {/* {currentUser ? <Logout /> : <Login />} */}
         <Link to="/" className="brand-logo">
           Home
         </Link>
@@ -18,6 +18,15 @@ const NavBar = ({ currentUser }) => {
         </Link>
         <Link to="/courses" className="brand-logo">
           Courses
+        </Link>
+        <Link to="/login" className="brand-logo">
+          Login
+        </Link>
+        <Link to="/logout" className="brand-logo">
+          Logout
+        </Link>
+        <Link to="/signup" className="brand-logo">
+          Sign Up
         </Link>
       </div>
     </nav>

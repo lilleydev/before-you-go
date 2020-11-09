@@ -1,7 +1,7 @@
-export const bucketListsReducer = (state = [], action) => {
+export const bucketLists = (state = [], action) => {
   switch (action.type) {
-    case "FETCH_BUCKET_LISTS":
-      return action.payload;
+    case "SET_BUCKET_LISTS":
+      return action.bucket_lists;
     default:
       return state;
   }

@@ -6,6 +6,7 @@ import { currentUserReducer } from "./currentUserReducer";
 import { loginForm } from "./loginFormReducer";
 import { bucketLists } from "./bucketListsReducer";
 import { signupForm } from "./signupForm";
+import { newBucketListForm } from "./newBucketListForm";
 
 export const rootReducer = combineReducers({
   users: usersReducer,
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
   loginForm,
   bucketLists,
   signupForm,
+  newBucketListForm,
 });

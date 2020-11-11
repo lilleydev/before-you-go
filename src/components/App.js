@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 
 import { connect } from "react-redux";
 import { getCurrentUser } from "../actions/currentUser";
+import "../App.css";
 
 class App extends React.Component {
   componentDidMount() {

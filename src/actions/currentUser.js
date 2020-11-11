@@ -1,5 +1,6 @@
 import { resetLoginForm } from "./loginForm";
 import { getMyBucketLists } from "./bucketLists";
+import { clearLists } from "./bucketLists";
 
 //sync
 export const setCurrentUser = (user) => {
@@ -10,7 +11,7 @@ export const setCurrentUser = (user) => {
 };
 
 //async
-export const login = (credentials) => {
+export const login = (credentials, history) => {
   return (dispatch) => {
     return fetch("http://localhost:3000/api/v1/login", {
       credentials: "include",
@@ -28,6 +29,7 @@ export const login = (credentials) => {
           dispatch(setCurrentUser(user.data));
           dispatch(getMyBucketLists());
           dispatch(resetLoginForm());
+          history.push("/about");
         }
       })
       .catch(console.log);
@@ -56,7 +58,7 @@ export const getCurrentUser = () => {
   };
 };
 
-export const signup = (credentials) => {
+export const signup = (credentials, history) => {
   return (dispatch) => {
     return fetch("http://localhost:3000/api/v1/signup", {
       credentials: "include",
@@ -74,6 +76,7 @@ export const signup = (credentials) => {
           dispatch(setCurrentUser(user.data));
           dispatch(getMyBucketLists());
           dispatch(resetLoginForm());
+          history.push("/about");
         }
       })
       .catch(console.log);
@@ -84,6 +87,7 @@ export const signup = (credentials) => {
 export const logout = () => {
   return (dispatch) => {
     dispatch(clearCurrentUser());
+    dispatch(clearLists());
     return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include",
       method: "DELETE",

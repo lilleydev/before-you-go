@@ -18,3 +18,4 @@ export const rootReducer = combineReducers({
   signupForm,
   newBucketListForm,
 });
+// the keys in my redux store ^

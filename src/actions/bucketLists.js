@@ -26,3 +26,9 @@ export const getMyBucketLists = () => {
       .catch(console.log);
   };
 };
+
+export const clearLists = () => {
+  return {
+    type: "CLEAR_LISTS",
+  };
+};

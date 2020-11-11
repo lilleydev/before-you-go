@@ -6,15 +6,19 @@ import About from "../components/About";
 import Login from "../components/Login";
 import Logout from "../components/Logout";
 import Signup from "./Signup";
+import MyBucketLists from "./MyBucketLists";
+import NewBucketListForm from "./NewBucketListForm";
 
 const Router = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" render={Home} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/logout" component={Logout} />
       <Route path="/about" component={About} />
       <Route path="/signup" component={Signup} />
+      <Route path="/bucketlist/new" component={NewBucketListForm} />
+      <Route path="/bucketlist" component={MyBucketLists} />
 
       <Route path="/courses" component={CoursesList} />
     </Switch>

@@ -8,7 +8,7 @@ export const setBucketLists = (bucket_lists) => {
 
 export const getMyBucketLists = () => {
   return (dispatch) => {
-    return fetch("http://localhost:3000/api/v1/bucket_lists", {
+    return fetch("http://localhost:3000/api/v1/lists", {
       credentials: "include",
       method: "GET",
       headers: {
@@ -20,7 +20,7 @@ export const getMyBucketLists = () => {
         if (resp.error) {
           alert(resp.error);
         } else {
-          dispatch(setBucketLists(resp.data));
+          dispatch(setLists(resp.data));
         }
       })
       .catch(console.log);

@@ -1,13 +1,13 @@
 const initalState = { name: "", items: "" };
 
-export const newBucketListForm = (state = initalState, action) => {
+export const newListForm = (state = initalState, action) => {
   switch (action.type) {
-    case "UPDATE_NEW_BUCKET_LIST_FORM":
+    case "UPDATE_NEW_LIST_FORM":
       return {
         ...state,
         [action.formData.name]: action.formData.value,
       };
-    case "RESET_NEW_BUCKET_LIST_FORM":
+    case "RESET_NEW_LIST_FORM":
       return initalState;
     default:
       return state;

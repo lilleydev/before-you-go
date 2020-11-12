@@ -2,12 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { updateListForm } from "../actions/newListForm";
 
-const NewBucketListForm = ({
-  formData,
-  history,
-  updateListForm,
-  handleSubmit,
-}) => {
+const NewListForm = ({ formData, history, updateListForm, handleSubmit }) => {
   const { name, items } = formData;
 
   const handleChange = (event) => {
@@ -39,7 +34,7 @@ const NewBucketListForm = ({
       />
       <br />
 
-      <input type="submit" value="Create Bucket List" />
+      <input type="submit" value="Create  List" />
       <br />
     </form>
   );
@@ -47,11 +42,11 @@ const NewBucketListForm = ({
 
 //state.reducerName
 const mapStateToProps = (state) => {
-  // const { name, items } = state.newBucketListForm;
+  // const { name, items } = state.newListForm;
   const userId = state.currentUser ? state.currentUser.id : "";
   return {
-    formData: state.newBucketListForm,
+    formData: state.newListForm,
     userId,
   };
 };
-export default connect(mapStateToProps, { updateListForm })(NewBucketListForm);
+export default connect(mapStateToProps, { updateListForm })(NewListForm);

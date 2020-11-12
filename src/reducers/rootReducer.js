@@ -4,9 +4,9 @@ import { usersReducer } from "./usersReducer";
 import { beerReducer } from "./beerReducer";
 import { currentUserReducer } from "./currentUserReducer";
 import { loginForm } from "./loginFormReducer";
-import { bucketLists } from "./bucketListsReducer";
+import { lists } from "./listsReducer";
 import { signupForm } from "./signupForm";
-import { newBucketListForm } from "./newBucketListForm";
+import { newlistForm } from "./newlistForm";
 
 export const rootReducer = combineReducers({
   users: usersReducer,
@@ -14,8 +14,8 @@ export const rootReducer = combineReducers({
   beers: beerReducer,
   currentUser: currentUserReducer,
   loginForm,
-  bucketLists,
+  lists,
   signupForm,
-  newBucketListForm,
+  newlistForm,
 });
 // the keys in my redux store ^

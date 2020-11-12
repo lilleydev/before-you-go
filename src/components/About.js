@@ -1,11 +1,11 @@
 import React from "react";
-import MyBucketLists from "./MyBucketLists";
+import MyLists from "./MyLists";
 
 const About = () => {
   return (
     <div>
       hey from about page
-      <MyBucketLists />
+      <MyLists />
     </div>
   );
 };

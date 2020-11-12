@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginForm";
-import { getMyBucketLists } from "./bucketLists";
-import { clearLists } from "./bucketLists";
+import { getMyBucketLists } from "./lists";
+import { clearLists } from "./lists";
 
 //sync
 export const setCurrentUser = (user) => {

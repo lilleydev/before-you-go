@@ -32,3 +32,26 @@ export const clearLists = () => {
     type: "CLEAR_LISTS",
   };
 };
+
+export const addList = (list) => {
+  return {
+    type: "ADD_LIST",
+    list,
+  };
+};
+
+export const createList = (listData) => {
+  return (dispatch) => {
+    return fetch("http://localhost:3000/api/v1/lists", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(listData),
+    })
+      .then((r) => r.json())
+      .then(console.log)
+      .catch(console.log);
+  };
+};

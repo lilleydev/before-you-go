@@ -9,6 +9,8 @@ export const newListForm = (state = initalState, action) => {
       };
     case "RESET_NEW_LIST_FORM":
       return initalState;
+    case "ADD_LIST":
+      return state.lists.concat(action.list);
     default:
       return state;
   }

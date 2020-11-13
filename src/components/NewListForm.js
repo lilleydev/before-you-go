@@ -1,22 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateListForm } from "../actions/newListForm";
+import { createList } from "../actions/lists";
 
-const NewListForm = ({ formData, history, updateListForm, handleSubmit }) => {
-  const { name, description, start_date, end_date } = formData;
+const NewListForm = ({ formData, history, updateListForm, createList }) => {
+  const { name, description, startDate, endDate } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     updateListForm(name, value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    createList(formData);
+  };
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        handleSubmit(formData);
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <label>Name</label>
       <input
         placeholder="Where to go?"
@@ -32,18 +32,20 @@ const NewListForm = ({ formData, history, updateListForm, handleSubmit }) => {
         value={description}
         onChange={handleChange}
       />
+      <br />
       <label>Starting:</label>
       <input
         placeholder="start date here"
         name="start_date"
-        value={start_date}
+        value={startDate}
         onChange={handleChange}
       />
+      <br />
       <label>Ending:</label>
       <input
         placeholder="end date here"
         name="end_date"
-        value={end_date}
+        value={endDate}
         onChange={handleChange}
       />
       <br />
@@ -56,11 +58,13 @@ const NewListForm = ({ formData, history, updateListForm, handleSubmit }) => {
 
 //state.reducerName
 const mapStateToProps = (state) => {
-  // const { name, items } = state.newListForm;
+  // const { name, description, startDate, endDate } = state.newListForm;
   const userId = state.currentUser ? state.currentUser.id : "";
   return {
     formData: state.newListForm,
     userId,
   };
 };
-export default connect(mapStateToProps, { updateListForm })(NewListForm);
+export default connect(mapStateToProps, { updateListForm, createList })(
+  NewListForm
+);

@@ -1,12 +1,12 @@
 //sync
-export const setBucketLists = (bucket_lists) => {
+export const setLists = (lists) => {
   return {
-    type: "SET_BUCKET_LISTS",
-    bucket_lists,
+    type: "SET_LISTS",
+    lists,
   };
 };
 
-export const getMyBucketLists = () => {
+export const getMyLists = () => {
   return (dispatch) => {
     return fetch("http://localhost:3000/api/v1/lists", {
       credentials: "include",

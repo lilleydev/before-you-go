@@ -3,13 +3,15 @@ import { connect } from "react-redux";
 import ListCard from "./ListCard";
 
 const MyLists = (props) => {
-  const Cards = props.lists.map((b) => <ListCard lists={b} key={b.id} />);
+  const Cards = props.lists.map((list) => (
+    <ListCard lists={list} key={list.id} />
+  ));
   return Cards;
 };
 
 const mapStateToProps = (state) => {
   return {
-    lists: state.Lists,
+    lists: state.lists,
     //needs to match name from store state
   };
 };

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { updateListForm } from "../actions/newListForm";
 
 const NewListForm = ({ formData, history, updateListForm, handleSubmit }) => {
-  const { name, items } = formData;
+  const { name, description, start_date, end_date } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,11 +25,25 @@ const NewListForm = ({ formData, history, updateListForm, handleSubmit }) => {
         onChange={handleChange}
       />
       <br />
-      <label>Wanna check out:</label>
+      <label>Description:</label>
       <input
-        placeholder="What to see??"
-        name="items"
-        value={items}
+        placeholder="Describe here..."
+        name="description"
+        value={description}
+        onChange={handleChange}
+      />
+      <label>Starting:</label>
+      <input
+        placeholder="start date here"
+        name="start_date"
+        value={start_date}
+        onChange={handleChange}
+      />
+      <label>Ending:</label>
+      <input
+        placeholder="end date here"
+        name="end_date"
+        value={end_date}
         onChange={handleChange}
       />
       <br />

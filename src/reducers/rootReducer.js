@@ -6,7 +6,7 @@ import { currentUserReducer } from "./currentUserReducer";
 import { loginForm } from "./loginFormReducer";
 import { lists } from "./listsReducer";
 import { signupForm } from "./signupForm";
-import { newlistForm } from "./newlistForm";
+import { newListForm } from "./newListForm";
 
 export const rootReducer = combineReducers({
   users: usersReducer,
@@ -16,6 +16,6 @@ export const rootReducer = combineReducers({
   loginForm,
   lists,
   signupForm,
-  newlistForm,
+  newListForm,
 });
 // the keys in my redux store ^

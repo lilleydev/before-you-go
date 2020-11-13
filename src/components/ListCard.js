@@ -1,10 +1,10 @@
 import React from "react";
 
-const ListCard = ({ _lists }) => {
-  return _lists ? (
+const ListCard = ({ lists }) => {
+  return lists ? (
     <div>
-      <h3>{_lists.attributes.name}</h3>
-      <h4>{_lists.attributes.items}</h4>
+      <h3>{lists.attributes.name}</h3>
+      <h4>{lists.attributes.description}</h4>
 
       {/* <Link to={`/_list_cards/${_list_card.id}/edit`}>Edit this _list_card</Link> */}
     </div>

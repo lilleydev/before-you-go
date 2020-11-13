@@ -1,5 +1,5 @@
 import { resetLoginForm } from "./loginForm";
-import { getMyBucketLists } from "./lists";
+import { getMyLists } from "./lists";
 import { clearLists } from "./lists";
 
 //sync
@@ -27,7 +27,7 @@ export const login = (credentials, history) => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user.data));
-          dispatch(getMyBucketLists());
+          // dispatch(getMyLists());
           dispatch(resetLoginForm());
           history.push("/about");
         }
@@ -51,7 +51,7 @@ export const getCurrentUser = () => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user.data));
-          dispatch(getMyBucketLists());
+          dispatch(getMyLists());
         }
       })
       .catch(console.log);
@@ -74,7 +74,7 @@ export const signup = (credentials, history) => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user.data));
-          dispatch(getMyBucketLists());
+          dispatch(getMyLists());
           dispatch(resetLoginForm());
           history.push("/about");
         }

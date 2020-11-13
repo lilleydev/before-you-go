@@ -21,15 +21,10 @@ const NavBar = ({ currentUser }) => {
             <NavLink exact activeClass to="/about" className="brand-logo">
               About |
             </NavLink>
-            <NavLink exact activeClass to="/bucketlist" className="brand-logo">
+            <NavLink exact activeClass to="/list" className="brand-logo">
               Gotta Do! |
             </NavLink>
-            <NavLink
-              exact
-              activeClass
-              to="/bucketlist/new"
-              className="brand-logo"
-            >
+            <NavLink exact activeClass to="/list/new" className="brand-logo">
               Add to My List |
             </NavLink>
             <NavLink exact activeClass to="/courses" className="brand-logo">

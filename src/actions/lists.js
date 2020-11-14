@@ -1,3 +1,4 @@
+import { resetNewListForm } from "./newListForm";
 //sync
 export const setLists = (lists) => {
   return {
@@ -40,7 +41,7 @@ export const addList = (list) => {
   };
 };
 
-export const createList = (listData) => {
+export const createList = (listData, history) => {
   return (dispatch) => {
     return fetch("http://localhost:3000/api/v1/lists", {
       credentials: "include",
@@ -51,7 +52,16 @@ export const createList = (listData) => {
       body: JSON.stringify(listData),
     })
       .then((r) => r.json())
-      .then(console.log)
+      .then((resp) => {
+        if (resp.error) {
+          alert(resp.eror);
+        } else {
+          dispatch(addList(resp.data));
+          dispatch(resetNewListForm());
+          history.push(`/lists/${resp.data.id}`);
+        }
+      })
+
       .catch(console.log);
   };
 };

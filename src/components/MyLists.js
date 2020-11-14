@@ -1,12 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import ListCard from "./ListCard";
-
+import { Link } from "react-router-dom";
 const MyLists = (props) => {
-  const Cards = props.lists.map((list) => (
-    <ListCard lists={list} key={list.id} />
+  const listCards = props.lists.map((list) => (
+    <>
+      <Link key={list.id} to={`/lists/${list.id}`}>
+        {list.attributes.name}
+      </Link>
+      <br />
+    </>
   ));
-  return Cards;
+  return listCards;
 };
 
 const mapStateToProps = (state) => {

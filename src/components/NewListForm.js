@@ -13,7 +13,7 @@ const NewListForm = ({ formData, history, updateListForm, createList }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createList(formData);
+    createList(formData, history);
   };
   return (
     <form onSubmit={handleSubmit}>

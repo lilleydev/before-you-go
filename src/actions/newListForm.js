@@ -6,3 +6,9 @@ export const updateListForm = (name, value) => {
     formData,
   };
 };
+
+export const resetNewListForm = () => {
+  return {
+    type: "RESET_NEW_LIST_FORM",
+  };
+};

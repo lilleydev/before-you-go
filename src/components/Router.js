@@ -8,8 +8,10 @@ import Logout from "../components/Logout";
 import Signup from "./Signup";
 import MyLists from "./MyLists";
 import NewListForm from "./NewListForm";
+import ListCard from "./ListCard";
+import { connect } from "react-redux";
 
-const Router = () => {
+const Router = ({ lists }) => {
   return (
     <Switch>
       <Route exact path="/" render={Home} />
@@ -17,12 +19,26 @@ const Router = () => {
       <Route exact path="/logout" component={Logout} />
       <Route path="/about" component={About} />
       <Route path="/signup" component={Signup} />
-      <Route path="/list/new" component={NewListForm} />
-      <Route path="/list" component={MyLists} />
+      <Route exact path="/lists/new" component={NewListForm} />
+      <Route exact path="/lists" component={MyLists} />
+      <Route
+        exact
+        path="/lists/:id"
+        render={(props) => {
+          const list = lists.find((list) => list.id === props.match.params.id);
+          console.log("my list", list);
+          return <ListCard list={list} {...props} />;
+        }}
+      />
 
       <Route path="/courses" component={CoursesList} />
     </Switch>
   );
 };
 
-export default Router;
+const mapStateToProps = (state) => {
+  return {
+    lists: state.lists,
+  };
+};
+export default connect(mapStateToProps)(Router);

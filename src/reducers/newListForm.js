@@ -1,4 +1,4 @@
-const initalState = { name: "", description: "", startDate: "", endDate: "" };
+const initalState = { name: "", description: "", state_date: "", end_date: "" };
 
 export const newListForm = (state = initalState, action) => {
   switch (action.type) {

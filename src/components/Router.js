@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../components/Home";
-import CoursesList from "./CoursesList";
 import About from "../components/About";
 import Login from "../components/Login";
 import Logout from "../components/Logout";
@@ -10,6 +9,7 @@ import MyLists from "./MyLists";
 import NewListForm from "./NewListForm";
 import ListCard from "./ListCard";
 import { connect } from "react-redux";
+import CoursesContainer from "./CoursesContainer";
 
 const Router = ({ lists }) => {
   return (
@@ -31,7 +31,7 @@ const Router = ({ lists }) => {
         }}
       />
 
-      <Route path="/courses" component={CoursesList} />
+      <Route path="/courses" component={CoursesContainer} />
     </Switch>
   );
 };

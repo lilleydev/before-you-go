@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateListForm } from "../actions/newListForm";
+import { updateListForm } from "../actions/listForm";
 import { createList } from "../actions/lists";
 
-const NewListForm = ({ formData, history, updateListForm, createList }) => {
+const ListForm = ({ formData, history, updateListForm, createList }) => {
   const { name, description, startDate, endDate } = formData;
 
   const handleChange = (event) => {
@@ -37,7 +37,7 @@ const NewListForm = ({ formData, history, updateListForm, createList }) => {
         <label>Starting:</label>
         <input
           placeholder="start date here"
-          name="start_date"
+          name="startDate"
           value={startDate}
           onChange={handleChange}
         />
@@ -45,7 +45,7 @@ const NewListForm = ({ formData, history, updateListForm, createList }) => {
         <label>Ending:</label>
         <input
           placeholder="end date here"
-          name="end_date"
+          name="endDate"
           value={endDate}
           onChange={handleChange}
         />
@@ -63,10 +63,10 @@ const mapStateToProps = (state) => {
   // const { name, description, startDate, endDate } = state.newListForm;
   const userId = state.currentUser ? state.currentUser.id : "";
   return {
-    formData: state.newListForm,
+    formData: state.listForm,
     userId,
   };
 };
 export default connect(mapStateToProps, { updateListForm, createList })(
-  NewListForm
+  ListForm
 );

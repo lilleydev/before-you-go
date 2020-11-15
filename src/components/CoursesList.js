@@ -26,6 +26,9 @@ const CoursesList = ({ courses, deleteCourse }) => {
                       <button onClick={() => deleteCourse(course)}>
                         Delete
                       </button>
+                      {/* <button onClick={() => addCourseToList(course)}>
+                        Play This!
+                      </button> */}
                     </li>
                   </article>
                 ))}

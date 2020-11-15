@@ -30,3 +30,9 @@ export const deleteCourse = (course) => {
       .then((course) => dispatch({ type: "DELETE_COURSE", payload: course }));
   };
 };
+
+// export const addCourseToList = (course) => {
+//   return dispatch => {
+//     fetch("http://.localhost:3000/api/v1/")
+//   }
+// }

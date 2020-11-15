@@ -1,4 +1,4 @@
-import { resetNewListForm } from "./newListForm";
+import { resetListForm } from "./listForm";
 //sync
 export const setLists = (lists) => {
   return {
@@ -42,14 +42,21 @@ export const addList = (list) => {
 };
 
 export const createList = (listData, history) => {
+  console.log("fetch", listData);
   return (dispatch) => {
+    const validListData = {
+      start_date: listData.startDate,
+      end_date: listData.endDate,
+      name: listData.name,
+      description: listData.description,
+    };
     return fetch("http://localhost:3000/api/v1/lists", {
       credentials: "include",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(listData),
+      body: JSON.stringify(validListData),
     })
       .then((r) => r.json())
       .then((resp) => {
@@ -57,7 +64,7 @@ export const createList = (listData, history) => {
           alert(resp.eror);
         } else {
           dispatch(addList(resp.data));
-          dispatch(resetNewListForm());
+          dispatch(resetListForm());
           history.push(`/lists/${resp.data.id}`);
         }
       })

@@ -1,14 +1,15 @@
 // sync
 export const updateListForm = (name, value) => {
   const formData = { name, value };
+  // console.log("actions", formData);
   return {
-    type: "UPDATE_NEW_LIST_FORM",
+    type: "UPDATE_LIST_FORM",
     formData,
   };
 };
 
-export const resetNewListForm = () => {
+export const resetListForm = () => {
   return {
-    type: "RESET_NEW_LIST_FORM",
+    type: "RESET_LIST_FORM",
   };
 };

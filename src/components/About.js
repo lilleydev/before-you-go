@@ -1,11 +1,14 @@
 import React from "react";
-import MyLists from "./MyLists";
 
 const About = () => {
   return (
-    <div>
-      hey from about page
-      <MyLists />
+    <div id="main">
+      <h2>
+        This application was designed with a traveling spirit in mind! <br />
+        Add a new location to your travel plans, include your travel dates{" "}
+        <br />
+        and then check out courses to add them to your list!
+      </h2>
     </div>
   );
 };

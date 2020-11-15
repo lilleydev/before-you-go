@@ -16,43 +16,45 @@ const NewListForm = ({ formData, history, updateListForm, createList }) => {
     createList(formData, history);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Name</label>
-      <input
-        placeholder="Where to go?"
-        name="name"
-        value={name}
-        onChange={handleChange}
-      />
-      <br />
-      <label>Description:</label>
-      <input
-        placeholder="Describe here..."
-        name="description"
-        value={description}
-        onChange={handleChange}
-      />
-      <br />
-      <label>Starting:</label>
-      <input
-        placeholder="start date here"
-        name="start_date"
-        value={startDate}
-        onChange={handleChange}
-      />
-      <br />
-      <label>Ending:</label>
-      <input
-        placeholder="end date here"
-        name="end_date"
-        value={endDate}
-        onChange={handleChange}
-      />
-      <br />
+    <div id="listForm">
+      <form onSubmit={handleSubmit}>
+        <label>Name</label>
+        <input
+          placeholder="Where to go?"
+          name="name"
+          value={name}
+          onChange={handleChange}
+        />
+        <br />
+        <label>Description:</label>
+        <input
+          placeholder="Describe here..."
+          name="description"
+          value={description}
+          onChange={handleChange}
+        />
+        <br />
+        <label>Starting:</label>
+        <input
+          placeholder="start date here"
+          name="start_date"
+          value={startDate}
+          onChange={handleChange}
+        />
+        <br />
+        <label>Ending:</label>
+        <input
+          placeholder="end date here"
+          name="end_date"
+          value={endDate}
+          onChange={handleChange}
+        />
+        <br />
 
-      <input type="submit" value="Create  List" />
-      <br />
-    </form>
+        <input type="submit" value="Create  List" />
+        <br />
+      </form>
+    </div>
   );
 };
 

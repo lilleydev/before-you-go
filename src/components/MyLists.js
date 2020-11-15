@@ -3,14 +3,18 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 const MyLists = (props) => {
   const listCards = props.lists.map((list) => (
-    <>
+    <article>
       <Link key={list.id} to={`/lists/${list.id}`}>
         {list.attributes.name}
       </Link>
       <br />
-    </>
+    </article>
   ));
-  return listCards;
+  return (
+    <div id="main">
+      <div class="posts">{listCards}</div>
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {

@@ -10,11 +10,7 @@ const MyLists = (props) => {
       <br />
     </article>
   ));
-  return (
-    <div id="main">
-      <div class="posts">{listCards}</div>
-    </div>
-  );
+  return <div class="posts">{listCards}</div>;
 };
 
 const mapStateToProps = (state) => {

@@ -6,11 +6,11 @@ import Login from "../components/Login";
 import Logout from "../components/Logout";
 import Signup from "./Signup";
 import MyLists from "./MyLists";
-import ListForm from "./ListForm";
 import ListCard from "./ListCard";
 import { connect } from "react-redux";
 import CoursesContainer from "./CoursesContainer";
-
+import NewListContainer from "./NewListContainer";
+import EditListContainer from "./EditListContainer";
 const Router = ({ lists }) => {
   return (
     <Switch>
@@ -19,7 +19,7 @@ const Router = ({ lists }) => {
       <Route exact path="/logout" component={Logout} />
       <Route path="/about" component={About} />
       <Route path="/signup" component={Signup} />
-      <Route exact path="/lists/new" component={ListForm} />
+      <Route exact path="/lists/new" component={NewListContainer} />
       <Route exact path="/lists" component={MyLists} />
       <Route
         exact
@@ -35,7 +35,9 @@ const Router = ({ lists }) => {
         path="/lists/:id/edit"
         render={(props) => {
           const list = lists.find((list) => list.id === props.match.params.id);
-          return <ListForm list={list} {...props} />;
+          // console.log("from route, list", list);
+
+          return <EditListContainer list={list} {...props} />;
         }}
       />
       <Route path="/courses" component={CoursesContainer} />

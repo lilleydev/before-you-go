@@ -13,11 +13,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <NavBar />
-        App Class
-        <Router />
-      </>
+      <div id="wrapper">
+        <div id="main">
+          <div class="inner">
+            <section>
+              <Router />
+            </section>
+          </div>
+        </div>
+        <div id="sidebar">
+          <NavBar />
+        </div>
+      </div>
     );
   }
 }

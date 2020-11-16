@@ -1,23 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateListForm } from "../actions/listForm";
-import { createList } from "../actions/lists";
 
-const ListForm = ({ formData, history, updateListForm, createList }) => {
-  const { name, description, startDate, endDate } = formData;
+const ListForm = ({
+  formData,
+  history,
+  updateListForm,
+  handleSubmit,
+  editMode,
+}) => {
+  const { name, description, startDate, endDate, list } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     updateListForm(name, value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    createList(formData, history);
-  };
   return (
     <div id="listForm">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(event) => handleSubmit(event, formData, history)}>
         <label>Name</label>
         <input
           placeholder="Where to go?"
@@ -36,7 +37,7 @@ const ListForm = ({ formData, history, updateListForm, createList }) => {
         <br />
         <label>Starting:</label>
         <input
-          placeholder="start date here"
+          placeholder="start date YYYY-MM-DD"
           name="startDate"
           value={startDate}
           onChange={handleChange}
@@ -44,14 +45,17 @@ const ListForm = ({ formData, history, updateListForm, createList }) => {
         <br />
         <label>Ending:</label>
         <input
-          placeholder="end date here"
+          placeholder="end date YYYY-MM-DD"
           name="endDate"
           value={endDate}
           onChange={handleChange}
         />
         <br />
 
-        <input type="submit" value="Create  List" />
+        <input
+          type="submit"
+          value={editMode ? "Update Info" : "Create  List"}
+        />
         <br />
       </form>
     </div>
@@ -67,6 +71,4 @@ const mapStateToProps = (state) => {
     userId,
   };
 };
-export default connect(mapStateToProps, { updateListForm, createList })(
-  ListForm
-);
+export default connect(mapStateToProps, { updateListForm })(ListForm);

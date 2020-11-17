@@ -8,13 +8,14 @@ const initialState = {
 };
 
 export const courseForm = (state = initialState, action) => {
+  // debugger;
   switch (action.type) {
     case "UPDATE_COURSE_FORM":
-      const returnVal = {
+      console.log("from courseForm Reducer, action is", action);
+      return {
         ...state,
         [action.formData.name]: action.formData.value,
       };
-      return returnVal;
     case "RESET_COURSE_FORM":
       return initialState;
     default:

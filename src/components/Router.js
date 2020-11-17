@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import CoursesContainer from "./CoursesContainer";
 import NewListContainer from "./NewListContainer";
 import EditListContainer from "./EditListContainer";
+import CoursesForm from "./CoursesForm";
 const Router = ({ lists }) => {
   return (
     <Switch>
@@ -20,6 +21,7 @@ const Router = ({ lists }) => {
       <Route path="/about" component={About} />
       <Route path="/signup" component={Signup} />
       <Route exact path="/lists/new" component={NewListContainer} />
+      <Route exact path="/courses/new" component={CoursesForm} />
       <Route exact path="/lists" component={MyLists} />
       <Route
         exact

@@ -1,13 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addCourse } from "../actions/coursesActions";
+import { updateCourseForm } from "../actions/courseForm";
 
-import { addCourse, updateCourseForm } from "../actions/coursesActions";
-
-const CoursesForm = ({ addCourse, history, formData }) => {
+const CoursesForm = ({ addCourse, history, formData, updateCourseForm }) => {
   const { name, street, city, state, difficulty, mixed_use_park } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    // const formInfo = { ...formData, [name]: value };
+    // debugger;
     updateCourseForm(name, value);
   };
 
@@ -20,6 +22,7 @@ const CoursesForm = ({ addCourse, history, formData }) => {
     <form onSubmit={handleSubmit}>
       <label>Name:</label>
       <input
+        type="text"
         placeholder="name of course"
         value={name}
         name="name"
@@ -29,6 +32,7 @@ const CoursesForm = ({ addCourse, history, formData }) => {
 
       <label>Street:</label>
       <input
+        type="text"
         placeholder="street address"
         value={street}
         name="street"
@@ -39,6 +43,7 @@ const CoursesForm = ({ addCourse, history, formData }) => {
       <label>City:</label>
       <input
         placeholder="city"
+        type="text"
         value={city}
         name="city"
         onChange={handleChange}
@@ -48,8 +53,9 @@ const CoursesForm = ({ addCourse, history, formData }) => {
       <label>State:</label>
       <input
         placeholder="state"
+        type="text"
         value={state}
-        name=""
+        name="state"
         onChange={handleChange}
       />
       <br />

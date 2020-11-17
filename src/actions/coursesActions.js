@@ -1,23 +1,57 @@
-export const fetchCourses = () => {
-  return (dispatch) => {
-    fetch("http://localhost:3000/api/v1/courses")
-      .then((resp) => resp.json())
-      // .then((data) => console.log(data));
-      .then((courses) =>
-        dispatch({ type: "FETCH_COURSES", payload: courses.data })
-      );
+import { resetCourseForm } from "../actions/courseForm";
+
+export const addNewCourse = (course) => {
+  return {
+    type: "ADD_COURSE",
+    course,
   };
 };
 
-export const addCourse = (course) => {
+export const setCourses = (courses) => {
+  return {
+    type: "SET_COURSES",
+    courses,
+  };
+};
+
+export const fetchCourses = () => {
   return (dispatch) => {
-    fetch("http://localhost:3000/api/v1/courses", {
+    return (
+      fetch("http://localhost:3000/api/v1/courses", {
+        credentials: "include",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((resp) => resp.json())
+        // .then((data) => console.log(data));
+        .then((resp) => {
+          console.log(resp);
+          if (resp.error) {
+            alert(resp.error);
+          } else {
+            dispatch(setCourses(resp.data));
+          }
+        })
+        .catch(console.log)
+    );
+  };
+};
+
+export const addCourse = (course, history) => {
+  return (dispatch) => {
+    return fetch("http://localhost:3000/api/v1/courses", {
       method: "POST",
       body: JSON.stringify(course),
       headers: { "Content-Type": "application/json" },
     })
       .then((resp) => resp.json())
-      .then((course) => dispatch({ type: "ADD_COURSE", payload: course.data }));
+      .then((course) => {
+        dispatch(addNewCourse(course.data));
+        dispatch(resetCourseForm());
+        history.push("/courses");
+      });
   };
 };
 

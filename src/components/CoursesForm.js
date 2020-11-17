@@ -1,85 +1,79 @@
-import React, { Component } from "react";
-import { addCourse } from "../actions/coursesActions";
+import React from "react";
 import { connect } from "react-redux";
 
-class CoursesForm extends Component {
-  state = {
-    name: "",
-    street: "",
-    city: "",
-    state: "",
-    difficulty: "",
-    mixed_use_park: false,
+import { addCourse, updateCourseForm } from "../actions/coursesActions";
+
+const CoursesForm = ({ addCourse, history, formData }) => {
+  const { name, street, city, state, difficulty, mixed_use_park } = formData;
+
+  const handleChange = (event) => {
+    const { name, value } = eventtarget;
+    updateCourseForm(name, value);
   };
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  const handleSubmit = (event) => {
+    eventpreventDefault();
+    addCourse(...formData);
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.props.addCourse(this.state);
-  };
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Name:</label>
-        <input
-          type="text"
-          value={this.state.name}
-          name="name"
-          onChange={this.handleChange}
-        />
-        <br />
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>Name:</label>
+      <input
+        placeholder="name of course"
+        value={name}
+        name="name"
+        onChange={handleChange}
+      />
+      <br />
 
-        <label>Street:</label>
-        <input
-          type="text"
-          value={this.state.street}
-          name="street"
-          onChange={this.handleChange}
-        />
-        <br />
+      <label>Street:</label>
+      <input
+        placeholder="street address"
+        value={street}
+        name="street"
+        onChange={handleChange}
+      />
+      <br />
 
-        <label>City:</label>
-        <input
-          type="text"
-          value={this.state.city}
-          name="city"
-          onChange={this.handleChange}
-        />
-        <br />
+      <label>City:</label>
+      <input
+        placeholder="city"
+        value={city}
+        name="city"
+        onChange={handleChange}
+      />
+      <br />
 
-        <label>State:</label>
-        <input
-          type="text"
-          value={this.state.state}
-          name="state"
-          onChange={this.handleChange}
-        />
-        <br />
+      <label>State:</label>
+      <input
+        placeholder="state"
+        value={state}
+        name=""
+        onChange={handleChange}
+      />
+      <br />
 
-        <label>Difficulty (1-10):</label>
-        <input
-          type="integer"
-          value={this.state.difficulty}
-          name="difficulty"
-          onChange={this.handleChange}
-        />
-        <br />
+      <label>Difficulty (1-10):</label>
+      <input
+        type="integer"
+        placeholder="rate from 1 - 10"
+        value={difficulty}
+        name="difficulty"
+        onChange={handleChange}
+      />
+      <br />
 
-        <label>Course within regular park?</label>
-        <input
-          type="boolean"
-          value={this.state.mixed_use_park}
-          name="mixed_use_park"
-          onChange={this.handleChange}
-        />
-        <input type="submit" />
-      </form>
-    );
-  }
-}
+      <label>Course within regular park?</label>
+      <input
+        type="boolean"
+        value={mixed_use_park}
+        name="mixed_use_park"
+        onChange={handleChange}
+      />
+      <input type="submit" />
+    </form>
+  );
+};
 
-export default connect(null, { addCourse })(CoursesForm);
+export default connect(null, { addCourse, updateCourseForm })(CoursesForm);

@@ -7,13 +7,13 @@ const CoursesForm = ({ addCourse, history, formData }) => {
   const { name, street, city, state, difficulty, mixed_use_park } = formData;
 
   const handleChange = (event) => {
-    const { name, value } = eventtarget;
+    const { name, value } = event.target;
     updateCourseForm(name, value);
   };
 
   const handleSubmit = (event) => {
-    eventpreventDefault();
-    addCourse(...formData);
+    event.preventDefault();
+    addCourse({ ...formData }, history);
   };
 
   return (
@@ -71,9 +71,18 @@ const CoursesForm = ({ addCourse, history, formData }) => {
         name="mixed_use_park"
         onChange={handleChange}
       />
+      <br />
       <input type="submit" />
     </form>
   );
 };
 
-export default connect(null, { addCourse, updateCourseForm })(CoursesForm);
+const mapStateToProps = (state) => {
+  // debugger;
+  return {
+    formData: state.courseForm,
+  };
+};
+export default connect(mapStateToProps, { addCourse, updateCourseForm })(
+  CoursesForm
+);

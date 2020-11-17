@@ -53,6 +53,16 @@ const NavBar = ({ currentUser }) => {
                   Courses |
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  exact
+                  activeClass
+                  to="/courses/new"
+                  className="brand-logo"
+                >
+                  Add a Course |
+                </NavLink>
+              </li>
             </ul>
           </>
         ) : null}

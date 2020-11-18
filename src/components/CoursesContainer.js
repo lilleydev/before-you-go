@@ -10,9 +10,12 @@ class CoursesContainer extends Component {
     this.props.fetchBreweries();
   }
   render() {
+    // debugger;
+    const { history } = this.props;
+
     return (
       <div>
-        <CoursesList />
+        <CoursesList history={history} />
       </div>
     );
   }

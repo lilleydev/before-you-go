@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { deleteCourse } from "../actions/coursesActions";
 
-const CoursesList = ({ courses, deleteCourse }) => {
+const CoursesList = ({ courses, deleteCourse, history }) => {
   // const courseInfo = courses.data;
   // debugger;
   return (
@@ -16,12 +16,14 @@ const CoursesList = ({ courses, deleteCourse }) => {
               <article>
                 <li key={course.id}>
                   <h2>{course.attributes.name}</h2>
-                  <h3>{course.attributes.difficulty}</h3>
+                  <h3>Difficulty Level: {course.attributes.difficulty}</h3>
+                  <p>{course.attributes.street}</p>
                   <p>
-                    {course.attributes.street} - {course.attributes.city} -{" "}
-                    {course.attributes.state}
+                    {course.attributes.city}, {course.attributes.state}
                   </p>
-                  <button onClick={() => deleteCourse(course)}>Delete</button>
+                  <button onClick={() => deleteCourse(course, history)}>
+                    Delete
+                  </button>
                   {/* <button onClick={() => addCourseToList(course)}>
                         Play This!
                       </button> */}

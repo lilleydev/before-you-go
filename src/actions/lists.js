@@ -105,8 +105,11 @@ export const updateList = (listData, history) => {
         if (resp.error) {
           alert(resp.eror);
         } else {
+          // console.log("resp before update", resp);
+
           dispatch(updateListSuccess(resp.data));
-          dispatch(resetListForm());
+          // dispatch(resetListForm());
+          // debugger;
           history.push(`/lists/${resp.data.id}`);
         }
       })

@@ -17,15 +17,3 @@ const Logout = ({ logout, history }) => {
 };
 
 export default connect(null, { logout })(Logout);
-
-{
-  /* <form
-  onSubmit={(event) => {
-    event.preventDefault();
-    logout();
-    history.push("/");
-  }}
->
-  <input type="submit" value="Log Out" />
-</form>; */
-}

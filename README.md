@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Before You Go
+
+This app was created to make events for various places you visit. It also connects with a Disc Golf API that users can add to. Users can make private lists of places they plan to visit. Redux is used to store data on the front end with Thunk being utilized as middleware.
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -19,29 +19,44 @@ const NavBar = ({ currentUser }) => {
           <>
             <ul>
               <li>
-                <NavLink exact activeClass to="/logout" className="brand-logo">
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  to="/logout"
+                  className="brand-logo"
+                >
                   Logout |
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClass to="/" className="brand-logo">
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  to="/"
+                  className="brand-logo"
+                >
                   Home |
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClass to="/about" className="brand-logo">
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  to="/about"
+                  className="brand-logo"
+                >
                   About |
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClass to="/lists">
+                <NavLink exact activeClassName="active" to="/lists">
                   Gotta Do! |
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   exact
-                  activeClass
+                  activeClassName="active"
                   to="/lists/new"
                   className="brand-logo"
                 >
@@ -49,14 +64,19 @@ const NavBar = ({ currentUser }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClass to="/courses" className="brand-logo">
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  to="/courses"
+                  className="brand-logo"
+                >
                   Courses |
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   exact
-                  activeClass
+                  activeClassName="active"
                   to="/courses/new"
                   className="brand-logo"
                 >

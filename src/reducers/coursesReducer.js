@@ -7,8 +7,7 @@ export const coursesReducer = (state = [], action) => {
     case "ADD_COURSE":
       return state.concat(action.course);
     case "DELETE_COURSE":
-      // debugger;
-      return state.filter((course) => course.id !== action.payload.id);
+      return state.filter((course) => course.id !== action.course.id);
 
     default:
       return state;

@@ -1,6 +1,6 @@
 export const updateCourseForm = (name, value) => {
   const formData = { name, value };
-  console.log("from courses actions, formData is", formData);
+  // console.log("from courses actions, formData is", formData);
   return {
     type: "UPDATE_COURSE_FORM",
     formData,

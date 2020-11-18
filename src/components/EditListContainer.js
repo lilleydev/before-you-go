@@ -10,7 +10,19 @@ class EditListContainer extends React.Component {
     this.props.list && this.props.setFormDataForEdit(this.props.list);
   }
 
+  componentDidUpdate(prevProps) {
+    this.props.list &&
+      !prevProps.list &&
+      this.props.list &&
+      this.props.setFormDataForEdit(this.props.list);
+  }
+
+  componentWillUnmount() {
+    this.props.resetListForm();
+  }
+
   handleSubmit = (event, formData, history) => {
+    // debugger;
     const { updateList, list } = this.props;
     // console.log("list is", list);
     event.preventDefault();
@@ -18,18 +30,15 @@ class EditListContainer extends React.Component {
   };
 
   render() {
+    const { history } = this.props;
     return (
       <div>
-        <ListForm
-          editMode
-          history={this.history}
-          handleSubmit={this.handleSubmit}
-        />
+        <ListForm editMode history={history} handleSubmit={this.handleSubmit} />
       </div>
     );
   }
 }
 
-export default connect(null, { updateList, setFormDataForEdit })(
+export default connect(null, { updateList, setFormDataForEdit, resetListForm })(
   EditListContainer
 );

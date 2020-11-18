@@ -1,7 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
 import { updateListForm } from "../actions/listForm";
-
+import { connect } from "react-redux";
 const ListForm = ({
   formData,
   history,
@@ -9,7 +8,7 @@ const ListForm = ({
   handleSubmit,
   editMode,
 }) => {
-  const { name, description, startDate, endDate, list } = formData;
+  const { name, description, startDate, endDate } = formData;
 
   const handleChange = (event) => {
     const { name, value } = event.target;

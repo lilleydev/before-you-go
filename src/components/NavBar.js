@@ -6,9 +6,9 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = ({ currentUser }) => {
   return (
-    <div class="inner">
+    <div className="inner">
       <nav id="menu">
-        <header class="major">
+        <header className="major">
           {currentUser ? (
             <h2>What's up {currentUser.attributes.name}!!</h2>
           ) : (

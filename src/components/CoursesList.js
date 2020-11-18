@@ -6,15 +6,15 @@ const CoursesList = ({ courses, deleteCourse, history }) => {
   // debugger;
   return (
     <section>
-      <header class="major">
+      <header className="major">
         <h2>Courses in this locale</h2>
       </header>
-      <div class="posts">
+      <div className="posts">
         {courses ? (
           <>
             {courses.map((course) => (
-              <article>
-                <li key={course.id}>
+              <article key={course.id}>
+                <li>
                   <h2>{course.attributes.name}</h2>
                   <h3>Difficulty Level: {course.attributes.difficulty}</h3>
                   <p>{course.attributes.street}</p>

@@ -15,7 +15,7 @@ class App extends React.Component {
     return (
       <div id="wrapper">
         <div id="main">
-          <div class="inner">
+          <div className="inner">
             <section>
               <Router />
             </section>

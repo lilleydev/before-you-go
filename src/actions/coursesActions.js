@@ -14,6 +14,13 @@ export const setCourses = (courses) => {
   };
 };
 
+export const removeCourse = (course) => {
+  return {
+    type: "DELETE_COURSE",
+    course,
+  };
+};
+
 export const fetchCourses = () => {
   return (dispatch) => {
     return (
@@ -27,7 +34,6 @@ export const fetchCourses = () => {
         .then((resp) => resp.json())
         // .then((data) => console.log(data));
         .then((resp) => {
-          console.log(resp);
           if (resp.error) {
             alert(resp.error);
           } else {
@@ -55,13 +61,16 @@ export const addCourse = (course, history) => {
   };
 };
 
-export const deleteCourse = (course) => {
+export const deleteCourse = (course, history) => {
   return (dispatch) => {
     fetch("http://localhost:3000/api/v1/courses/" + course.id, {
       method: "DELETE",
     })
       .then((resp) => resp.json())
-      .then((course) => dispatch({ type: "DELETE_COURSE", payload: course }));
+      .then((course) => {
+        dispatch(removeCourse(course.data));
+        history.push(`/courses`);
+      });
   };
 };
 
